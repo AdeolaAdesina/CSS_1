@@ -461,3 +461,58 @@ Navigate to style.css. Add a ruleset using the ID selector to target the article
 ```
 font-family: cursive;
 ```
+  
+style.css:
+
+```
+#article-title {
+  font-family: cursive;
+}
+```
+  
+## Attribute
+  
+You may remember that some HTML elements use attributes to add extra detail or functionality to the element. Some familiar attributes may be href and src, but there are many more—including class and id!
+
+The attribute selector can be used to target HTML elements that already contain attributes. Elements of the same type can be targeted differently by their attribute or attribute value. This alleviates the need to add new code, like the class or id attributes.
+
+Attributes can be selected similarly to types, classes, and IDs.
+
+```
+[href]{
+   color: magenta;
+}
+```
+  
+The most basic syntax is an attribute surrounded by square brackets. In the above example: [href] would target all elements with an href attribute and set the color to magenta.
+  
+And it can get more granular from there by adding type and/or attribute values. One way is by using type[attribute*=value]
+  
+For example:
+  
+```
+<img src='/images/seasons/cold/winter.jpg'>
+<img src='/images/seasons/warm/summer.jpg'>
+```
+  
+You can style it this way:
+  
+```
+img[src*='winter'] {
+  height: 50px;
+}
+ 
+img[src*='summer'] {
+  height: 100px;
+}
+```
+  
+## Class work
+  
+To use the attribute selector to select the <a> element with an href attribute value containing ‘florence’, add the following code to style.css:
+  
+```  
+a[href*='florence'] {
+  color: lightgreen;
+}
+```
