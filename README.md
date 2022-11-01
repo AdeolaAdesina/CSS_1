@@ -357,7 +357,7 @@ Index.txt:
 </html>
 ```
 
-Now create a style.css file, add a ruleset using the type selector to target all <h1> elements. 
+Now create a style.css file, add a ruleset using the type selector to target all ```<h1>``` elements. 
   
 Give it a color: maroon
 
