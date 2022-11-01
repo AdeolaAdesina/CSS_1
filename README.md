@@ -275,3 +275,189 @@ If the CSS file is stored in the same directory as your HTML file, then you can 
 <link href='./style.css' rel='stylesheet'>
 ```
 
+
+
+# Selectors
+
+## Type
+
+Remember that declarations are a fundamental part of CSS because they apply a style to a selected element. 
+
+But how do you decide which elements will get the style? With a selector.
+
+A selector is used to target the specific HTML element(s) to be styled by the declaration. One selector you may already be familiar with is the type selector. Just like its name suggests, the type selector matches the type of the element in the HTML document.
+
+## Class work
+
+For this class, here's the index.txt that we will be styling:
+
+Index.txt:
+
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Vacation World</title>
+  <link href='style.css' rel='stylesheet'>
+</head>
+
+<body>
+  <img src='https://content.codecademy.com/courses/freelance-1/unit-2/explorer.jpeg' />
+  <h1 class='title'>Top Vacation Spots</h1>
+  <h5>By: Stacy Gray</h5>
+  <h6>Published: 2 Days Ago</h6>
+
+  <p>The world is full of fascinating places. Planning the perfect vacation involves packing up, leaving home, and experiencing something new.</p>
+
+  <h2 class='destination'>1. Florence, Italy</h2>
+  <div class='description'>A city-size shrine to the Renaissance, Florence offers frescoes, sculptures, churches, palaces, and other monuments from the richest cultural flowering the world has known. Names from its dazzling historical past; Dante, Michelangelo, Galileo, Machiavelliare are some of the most resonant of the medieval age. <a href='https://www.nationalgeographic.com/travel/destination/florence' target='_blank'>Learn More</a>.
+    <h5>Top Attractions</h5>
+    <ul>
+      <li>Museums</li>
+      <li>Bike Tours</li>
+      <li>Historical Monuments</li>
+    </ul>
+  </div>
+
+  <h2 class='destination'>2. Beijing, China</h2>
+  <div class='description'>A city in the midst of reinventing itself and continuing to build on the success of the 2008 Summer Olympics, Beijing is a place of frenzied construction. New housing, new roads, and new sports venues seem to spring up overnight. At the same time, the capital of the Peoples Republic of China remains an epicenter of tradition, with the treasures of nearly 2,000 years as the imperial capital still on view in the famed Forbidden City and in the luxuriant pavilions and gardens of the Summer Palace.
+    <a href='https://www.nationalgeographic.com/travel/destination/beijing' target='_blank'>Learn More</a>.
+    <h5>Top Attractions</h5>
+    <ul>
+      <li>Biking</li>
+      <li>Historical Sites</li>
+      <li>Restaurants and Dining</li>
+    </ul>
+  </div>
+
+  <h2 class='destination'>3. Seoul, South Korea</h2>
+  <div class='description'>The Korean capital is a city of contrasts. Fourteenth-century city gates squat in the shadow of 21st-century skyscrapers, while the broad Han River is back-dropped by granite mountains rising in the city center complete with alpine highways speeding around their contours and temples nestling among their crags. Fashionable, gadget-laden youths battle for sidewalk space with fortune-tellers and peddlers, while tiny neighborhoods of traditional cottages contrast with endless ranks of identical apartments.
+    <a href='https://www.nationalgeographic.com/travel/destination/seoul' target='_blank'>Learn More</a>.
+    <h5>Top Attractions</h5>
+    <ul>
+      <li>Parasailing</li>
+      <li>Segway Tours</li>
+      <li>Spas and Resorts</li>
+    </ul>
+  </div>
+
+  <h2> More Destinations </h2>
+  <ul>
+    <li><h4 class='destination'>Jackson Hole, Wyoming</h4></li>
+    <li><h4 class='destination'>Cape Town, South Africa</h4></li>
+    <li><h4 class='destination'>La Paz, Bolivia</h4></li>
+  </ul>
+
+  <p>&mdash;Best of luck with your travels, and be sure to send pictures and stories. We'd love to hear them!</p>
+
+
+</body>
+
+</html>
+```
+
+Now create a style.css file, add a ruleset using the type selector to target all <h1> elements. 
+  
+Give it a color: maroon
+
+  
+Solution: style.css =
+```
+p {
+  color: green;
+}
+
+h1 {
+  color: maroon;
+}
+```
+  
+## Universal
+  
+You learned how the type selector selects all elements of a given type. Well, the universal selector selects all elements of any type.
+  
+Targeting all of the elements on the page has a few specific use cases, such as resetting default browser styling, or selecting all children of a parent element.
+  
+The universal selector uses the * character in the same place where you specified the type selector in a ruleset, like so:
+  
+```
+* { 
+  font-family: Verdana;
+}
+```
+  
+In the code above, every text element on the page will have its font changed to Verdana.
+  
+## Class work
+  
+To see how the universal selector targets all elements on a page, copy the rule below and paste it on the first line of style.css
+  
+```
+* {
+  border: 1px solid red;
+}
+```
+  
+## Class
+  
+CSS is not limited to selecting elements by their type. As you know, HTML elements can also have attributes. When working with HTML and CSS a class attribute is one of the most common ways to select an element.
+
+For example, consider the following HTML:
+  
+```
+<p class='brand'>Sole Shoe Company</p>
+```
+  
+The paragraph element in the example above has a class attribute within the opening tag of the ```<p>``` element. The class attribute is set to 'brand'. To select this element using CSS, we can create a ruleset with a class selector of ```.brand```.
+  
+```
+.brand {
+ 
+}
+```
+  
+To select an HTML element by its class using CSS, a period (.) must be prepended to the class’s name. In the example above, the class is brand, so the CSS selector for it is .brand.
+  
+## Class work
+  
+On line 11 of index.html there is an ```<h1>``` element with the class title.
+
+Now, open style.css. use the class selector to create a ruleset that selects that HTML element using the class title.
+  
+Inside the curly braces of the .title selector, add the declaration:
+```
+color: teal;
+```
+  
+## ID
+  
+Oftentimes it’s important to select a single element with CSS to give it its own unique style. If an HTML element needs to be styled uniquely, we can give it an ID using the id attribute.
+  
+```
+<h1 id='large-title'> ... </h1>
+```
+  
+In contrast to class which accepts multiple values, and can be used broadly throughout an HTML document, an element’s id can only have a single value, and only be used once per page.
+  
+To select an element’s ID with CSS, we prepend the id name with a number sign ```(#)```. For instance, if we wanted to select the HTML element in the example above, it would look like this:
+  
+```
+#large-title {
+ 
+}
+```
+  
+## Class work
+  
+On line 11 of index.html, inside the h1 opening tag and after the class attribute, add an id with the value article-title.
+  
+```
+<h1 class='title'>Top Vacation Spots id='article-title'</h1>
+```
+  
+Navigate to style.css. Add a ruleset using the ID selector to target the article-title ID. Inside of its curly braces, write the declaration:
+
+```
+font-family: cursive;
+```
