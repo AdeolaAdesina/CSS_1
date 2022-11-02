@@ -537,3 +537,312 @@ p:hover {
 ```
   
 In the above code, whenever the mouse hovers over a paragraph element, that paragraph will have a lime-colored background.
+
+
+## Class work
+
+Add a ruleset to the end of style.css that selects the <a> elements on the page. Leave the declaration block empty for now.
+
+
+Next, add a :hover pseudo-class to the a selector you just created.
+
+Lastly, set the text color to dark orange by adding the following CSS declaration inside the declaration block:
+
+```
+color: darkorange;
+```
+
+code:
+
+```
+ a:hover {
+    color:darkorange;
+  }
+```
+
+## Classes and IDs
+
+CSS can select HTML elements by their type, class, and ID. CSS classes and IDs have different purposes, which can affect which one you use to style HTML elements.
+
+CSS classes are meant to be reused over many elements. By writing CSS classes, you can style elements in a variety of ways by mixing classes. For instance, imagine a page with two headlines. One headline needs to be bold and blue, and the other needs to be bold and green. Instead of writing separate CSS rules for each headline that repeat each other’s code, it’s better to write a .bold CSS rule, a .green CSS rule, and a .blue CSS rule. Then you can give one headline the bold green classes, and the other the bold blue classes.
+
+## Class work
+
+1 In index.html, there are four <h2> elements. Give each of them a class of heading-background.
+
+2 On line 13 of index.html, there’s an <h6> element that displays the time the article on the page was published.
+
+Add an id attribute to the <h6>, and give it a value of publish-time.
+
+3 Then, in style.css, create a ruleset targeting the new heading-background class, and give it a declaration of:
+
+```
+background-color: aqua;
+```
+
+4 Finally, in style.css, create another ruleset using the publish-time ID selector. Add the declaration:
+
+```
+color: gray;
+```
+
+Since ID’s are single-use, this element now has a unique ID that can’t be used again in this document!
+
+Solution: Index.html:
+
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Vacation World</title>
+  <link href='styles.css' rel='stylesheet'>
+</head>
+
+<body>
+  <img src='https://content.codecademy.com/courses/freelance-1/unit-2/explorer.jpeg' />
+  <h1 class='title' id='article-title'>Top Vacation Spots </h1>
+  <h5>By: Stacy Gray</h5>
+  <h6 id="publish-time">Published: 2 Days Ago</h6>
+
+  <p>The world is full of fascinating places. Planning the perfect vacation involves packing up, leaving home, and experiencing something new.</p>
+
+  <h2 class='destination heading-background'>1. Florence, Italy</h2>
+  <div class='description'>A city-size shrine to the Renaissance, Florence offers frescoes, sculptures, churches, palaces, and other monuments from the richest cultural flowering the world has known. Names from its dazzling historical past; Dante, Michelangelo, Galileo, Machiavelliare are some of the most resonant of the medieval age. <a href='https://www.nationalgeographic.com/travel/destination/florence' target='_blank'>Learn More</a>.
+    <h5>Top Attractions</h5>
+    <ul>
+      <li>Museums</li>
+      <li>Bike Tours</li>
+      <li>Historical Monuments</li>
+    </ul>
+  </div>
+
+  <h2 class='destination heading-background'>2. Beijing, China</h2>
+  <div class='description'>A city in the midst of reinventing itself and continuing to build on the success of the 2008 Summer Olympics, Beijing is a place of frenzied construction. New housing, new roads, and new sports venues seem to spring up overnight. At the same time, the capital of the Peoples Republic of China remains an epicenter of tradition, with the treasures of nearly 2,000 years as the imperial capital still on view in the famed Forbidden City and in the luxuriant pavilions and gardens of the Summer Palace.
+    <a href='https://www.nationalgeographic.com/travel/destination/beijing' target='_blank'>Learn More</a>.
+    <h5>Top Attractions</h5>
+    <ul>
+      <li>Biking</li>
+      <li>Historical Sites</li>
+      <li>Restaurants and Dining</li>
+    </ul>
+  </div>
+
+  <h2 class='destination heading-background'>3. Seoul, South Korea</h2>
+  <div class='description'>The Korean capital is a city of contrasts. Fourteenth-century city gates squat in the shadow of 21st-century skyscrapers, while the broad Han River is back-dropped by granite mountains rising in the city center complete with alpine highways speeding around their contours and temples nestling among their crags. Fashionable, gadget-laden youths battle for sidewalk space with fortune-tellers and peddlers, while tiny neighborhoods of traditional cottages contrast with endless ranks of identical apartments.
+    <a href='https://www.nationalgeographic.com/travel/destination/seoul' target='_blank'>Learn More</a>.
+    <h5>Top Attractions</h5>
+    <ul>
+      <li>Parasailing</li>
+      <li>Segway Tours</li>
+      <li>Spas and Resorts</li>
+    </ul>
+  </div>
+
+  <h2> More Destinations </h2>
+  <ul>
+    <li><h4 class='destination'>Jackson Hole, Wyoming</h4></li>
+    <li><h4 class='destination'>Cape Town, South Africa</h4></li>
+    <li><h4 class='destination'>La Paz, Bolivia</h4></li>
+  </ul>
+
+  <p>&mdash;Best of luck with your travels, and be sure to send pictures and stories. We'd love to hear them!</p>
+
+
+</body>
+
+</html>
+```
+
+Style.css:
+
+```
+* {
+    border: 1px solid red;
+  }
+  
+  p {
+    color: green;
+  }
+  
+  h1 {
+    color: maroon;
+  }
+
+  .title {
+    color: teal;
+  }
+
+  #article-title {
+    font-family: cursive;
+  }
+
+  a[href*='florence'] {
+    color: lightgreen;
+  }
+
+  a:hover {
+    color:darkorange;
+  }
+
+  .heading-background {
+    background-color: aqua;
+  }
+  
+  #publish-time {
+    color: gray;
+  }
+  ```
+  
+  
+  # Specificity
+  
+Specificity is the order by which the browser decides which CSS styles will be displayed. A best practice in CSS is to style elements while using the lowest degree of specificity so that if an element needs a new style, it is easy to override.
+
+IDs are the most specific selector in CSS, followed by classes, and finally, type. For example, consider the following HTML and CSS:
+
+```
+<h1 class='headline'>Breaking News</h1>
+```
+
+```
+h1 {
+  color: red;
+}
+ 
+.headline {
+  color: firebrick;
+}
+```
+
+In the example code above, the color of the heading would be set to firebrick, as the class selector is more specific than the type selector. 
+
+If an ID attribute (and selector) were added to the code above, the styles within the ID selector’s body would override all other styles for the heading.
+
+
+# Chaining
+
+When writing CSS rules, it’s possible to require an HTML element to have two or more CSS selectors at the same time.
+
+This is done by combining multiple selectors, which we will refer to as chaining. For instance, if there was a special class for ```<h1>``` elements, the CSS would look like below:
+
+```
+h1.special {
+ 
+}
+```
+
+The code above would select only the <h1> elements with a class of special. If a ```<p>``` element also had a class of special, the rule in the example would not style the paragraph.
+
+
+## Class work
+
+Let’s use chaining to select only the <h2> elements with destinations, and add a style to them.
+
+In style.css, write a CSS selector for <h2> elements with a class of .destination. Inside the selector’s curly braces, add this declaration:
+
+```
+font-family: Tahoma;
+```
+
+This will change the font of the h2 elements that also have the class destination. The last ```<h2>``` element (“More Destinations”) will remain unchanged.
+
+Solution:
+
+style.css:
+
+```
+h2.destination {
+  font-family: Tahoma;
+}
+```
+
+## Descendant Combinator
+
+In addition to chaining selectors to select elements, CSS also supports selecting elements that are nested within other HTML elements, also known as descendants. For instance, consider the following HTML:
+
+```
+<ul class='main-list'>
+  <li> ... </li>
+  <li> ... </li>
+  <li> ... </li>
+</ul>
+```
+
+The nested ```<li>``` elements are descendants of the ```<ul>``` element and can be selected with the descendant combinator like so:
+
+```
+.main-list li {
+ 
+}
+```
+
+In the example above, .main-list selects the element with the.main-list class (the ```<ul>``` element). The descendant <li>‘s are selected by adding li to the selector, separated by a space. 
+
+This results in ```.main-list li``` as the final selector.
+
+## Class work
+
+Navigate to style.css. Add a ruleset that uses the descendant combinator to target only the <h5> descendants of elements with the class .description.
+
+Inside the curly braces of the selector, add a declaration of:
+
+```
+color: blueviolet;
+```
+
+style.css:
+
+```
+.description h5 {
+  color: blueviolet;
+}
+```
+
+
+## Chaining and Specificity
+
+In the last exercise, instead of selecting all ```<h5>``` elements, you selected only the <h5> elements nested inside the .description elements. This CSS selector was more specific than writing only h5. Adding more than one tag, class, or ID to a CSS selector increases the specificity of the CSS selector.
+
+For instance, consider the following CSS:
+
+```
+p {
+  color: blue;
+}
+ 
+.main p {
+  color: red;
+}
+```
+
+Both of these CSS rules define what a ```<p>``` element should look like. Since .main p has a class and a p type as its selector, only the ```<p>``` elements inside the .main element will appear red. 
+
+This occurs despite there being another more general rule that states ```<p>``` elements should be blue.
+
+
+## Multiple Selectors
+
+In order to make CSS more concise, it’s possible to add CSS styles to multiple CSS selectors all at once. This prevents writing repetitive code.
+
+For instance, the following code has repetitive style attributes:
+
+```
+h1 {
+  font-family: Georgia;
+}
+ 
+.menu {
+  font-family: Georgia;
+}
+```
+
+Instead of writing font-family: Georgia twice for two selectors, we can separate the selectors by a comma to apply the same style to both, like this:
+
+```
+h1, 
+.menu {
+  font-family: Georgia;
+}
+```
+
